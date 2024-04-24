@@ -1,0 +1,12 @@
+# We will use Docker compose v3.9
+version: '3.9'
+
+services:
+  api:
+    image: node-docker-demo:latest # Specify your custom Node.js image name and tag
+    build: .
+    command: npm run start
+    ports:
+      - '4000:3000' # Specify the exposed port, we will need this to access the app from local machine
+    volumes:
+      - ./api:/app
